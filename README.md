@@ -75,6 +75,10 @@ These features capture **patterns in sound**, not language, enabling the model t
 
 ## ⚙️ Workflow
 
+
+
+<img width="1440" height="1996" alt="image" src="https://github.com/user-attachments/assets/d8c18ba9-81e9-48c3-929c-c4eef5f0b2fe" />
+
 ```text
 Audio Input
      ↓
@@ -90,5 +94,4 @@ Final Output:
 [Distress] or [Not Distress]
 
 
-<img width="1440" height="1996" alt="image" src="https://github.com/user-attachments/assets/7512f5c3-42f6-4263-8507-624178c4c955" />
 
