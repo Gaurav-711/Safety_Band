@@ -4,7 +4,7 @@
 SafeBand is an intelligent wearable safety system designed to enhance women’s safety through real-time monitoring of physiological and audio signals. The system detects potential danger or stress situations and automatically triggers alerts when necessary.
 
 The solution integrates IoT hardware with AI-based audio analysis to identify distress signals such as screams or verbal calls for help.
-
+It is an Ongoing Project, Current progress : https://gaurav-711.github.io/Safety_Band/
 ---
 
 ## 🚀 Features
