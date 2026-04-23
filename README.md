@@ -88,3 +88,7 @@ Model 2 → Help Detection
      ↓
 Final Output:
 [Distress] or [Not Distress]
+
+
+<img width="1440" height="1996" alt="image" src="https://github.com/user-attachments/assets/7512f5c3-42f6-4263-8507-624178c4c955" />
+
