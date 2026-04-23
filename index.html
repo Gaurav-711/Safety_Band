@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeBand — She Is Never Alone</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">Safe<span>Band</span></div>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#monitor">Live Monitor</a></li>
+    <li><a href="#awareness">Awareness</a></li>
+    <li><a href="#features">Features</a></li>
+  </ul>
+  <button class="nav-cta">Get SafeBand</button>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag fade-up fade-up-1">Women's Safety Technology</div>
+    <h1 class="hero-title fade-up fade-up-2">
+      She is<br><em>never</em><br>alone.
+    </h1>
+    <p class="hero-subtitle fade-up fade-up-3">
+      An intelligent wristband that detects Heart rate and SpO₂, recognises cries for help
+      through stress, and monitors vital signs — sending instant alerts when it matters most.
+    </p>
+    <div class="hero-actions fade-up fade-up-4">
+      <a href="#monitor" class="btn-primary">View Live Monitor</a>
+      <a href="#how"     class="btn-secondary">How It Works</a>
+    </div>
+  </div>
+
+  <div class="hero-visual fade-up fade-up-3">
+    <div class="band-wrapper">
+      <div class="band-strap-top"></div>
+      <div class="band-device">
+        <div class="band-screen">
+          <div class="band-hr-value" id="heroHR">78</div>
+          <div class="band-hr-label">BPM</div>
+          <div class="band-spo2"    id="heroSPO2">SpO₂ 98%</div>
+          <div class="band-status-dot" id="heroStatus"></div>
+        </div>
+      </div>
+      <div class="band-strap-bottom"></div>
+
+      <div class="floating-stat fs-top-right">
+        <div class="fs-value" id="fsHR">78</div>
+        <div class="fs-label">Heart Rate</div>
+      </div>
+      <div class="floating-stat fs-bottom-left">
+        <div class="fs-value" style="color:#3498db">98%</div>
+        <div class="fs-label">SpO₂ Level</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS STRIP ───────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-number">1 in 3</span>
+    <span class="stat-label">Women face violence globally</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">&lt;0.5s</span>
+    <span class="stat-label">Stress detection speed</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">Any</span>
+    <span class="stat-label">Language support</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">24/7</span>
+    <span class="stat-label">Real-time monitoring</span>
+  </div>
+</div>
+
+<!-- ── HOW IT WORKS ──────────────────────────────── -->
+<section class="how-it-works" id="how">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">The Technology</div>
+      <h2 class="section-title">Intelligent detection<br>in <em>three steps</em></h2>
+    </div>
+    <p class="section-desc">A two-model AI pipeline running entirely on the device. No internet required. No data leaves the band.</p>
+  </div>
+
+  <div class="pipeline">
+    <div class="pipeline-step">
+      <div class="step-number">01 — INPUT</div>
+      <div class="step-icon">🎙️</div>
+      <h3 class="step-title">Continuous Stress Capture</h3>
+      <p class="step-desc">The band's microphone continuously listens in 3-second sliding windows. Vital signs (heart rate, SpO₂) are sampled every second via optical sensors.</p>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-number">02 — DETECTION</div>
+      <div class="step-icon">🧠</div>
+      <h3 class="step-title">AI Analysis</h3>
+      <p class="step-desc">Whisper embeddings extract 512-dimensional voice features — language agnostic. A unified classifier determines: SAFE, SCREAM, or HELP. Works in Hindi, Bengali, English or any language.</p>
+    </div>
+    <div class="pipeline-step">
+      <div class="step-number">03 — RESPONSE</div>
+      <div class="step-icon">🚨</div>
+      <h3 class="step-title">Instant Alert</h3>
+      <p class="step-desc">Alert sent via SMS and app notification to designated contacts with GPS location. Raspberry Pi 4 processes everything locally in under 500ms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── AI SECTION ────────────────────────────────── -->
+<section class="ai-section">
+  <div class="ai-text">
+    <div class="section-tag">The Models</div>
+    <h2 class="section-title">Built on<br><em>deep learning</em></h2>
+    <p>The unified AI model uses OpenAI's Whisper encoder to extract rich numerical patterns from stress — patterns that capture fear, urgency, and distress regardless of what language is spoken.</p>
+    <p>Trained on real scream recordings and help phrases in multiple languages. Deployed on Raspberry Pi 4 via ONNX runtime for ultra-low latency inference.</p>
+  </div>
+
+  <div class="model-cards">
+    <div class="model-card">
+      <div class="model-num">01</div>
+      <div class="model-info">
+        <h4>Stress Detection</h4>
+        <p>CNN on mel spectrogram · ~60ms inference</p>
+      </div>
+      <div class="model-badge badge-green">Active</div>
+    </div>
+    <div class="model-card">
+      <div class="model-num">02</div>
+      <div class="model-info">
+        <h4>Help Keyword Spotting</h4>
+        <p>Whisper Embedding + Classifier · ~500ms</p>
+      </div>
+      <div class="model-badge badge-blue">Active</div>
+    </div>
+    <div class="model-card">
+      <div class="model-num">03</div>
+      <div class="model-info">
+        <h4>Vital Sign Anomaly</h4>
+        <p>Heart rate spike detection · continuous</p>
+      </div>
+      <div class="model-badge badge-red">Active</div>
+    </div>
+    <div class="model-card">
+      <div class="model-num">04</div>
+      <div class="model-info">
+        <h4>Alert System</h4>
+        <p>SMS + GPS · triggered on positive detection</p>
+      </div>
+      <div class="model-badge badge-green">Standby</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LIVE MONITOR ───────────────────────────────── -->
+<section class="monitor-section" id="monitor">
+  <div class="monitor-header">
+    <div>
+      <div class="section-tag">Live Dashboard</div>
+      <h2 class="section-title" style="color:var(--white)">Health <em style="color:var(--rose)">Monitor</em></h2>
+    </div>
+    <div class="live-badge">
+      <div class="live-dot"></div>
+      Live · Simulated Demo
+    </div>
+  </div>
+
+  <div class="monitor-grid">
+
+    <!-- ECG Chart -->
+    <div class="monitor-card chart-area">
+      <div class="mc-header">
+        <div class="mc-title">Heart Rate — ECG Waveform</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.25)" id="ecgTime">00:00:00</div>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:1rem">
+        <div class="mc-value card-hr" id="liveHR">78</div>
+        <div class="mc-unit">BPM</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--safe-green);margin-left:auto" id="hrStatus">Normal Range</div>
+      </div>
+      <div class="chart-container">
+        <canvas id="ecgCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- SpO₂ Ring -->
+    <div class="monitor-card">
+      <div class="mc-header">
+        <div class="mc-title">SpO₂ Level</div>
+      </div>
+      <div class="spo2-ring-wrap" style="position:relative;display:flex;align-items:center;justify-content:center">
+        <svg class="ring-svg" width="120" height="120" viewBox="0 0 120 120">
+          <circle class="ring-track" cx="60" cy="60" r="50" stroke-width="8"/>
+          <circle class="ring-fill" id="spo2Ring" cx="60" cy="60" r="50"
+            stroke-width="8"
+            stroke-dasharray="314"
+            stroke-dashoffset="20"/>
+        </svg>
+        <div style="position:absolute;text-align:center">
+          <div class="mc-value card-spo2" style="font-size:1.8rem" id="liveSPO2">98</div>
+          <div class="mc-unit">%</div>
+        </div>
+      </div>
+      <div class="mc-status card-spo2" id="spo2Status">Excellent</div>
+      <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(255,255,255,0.2);margin-top:0.5rem">
+        Normal: 95–100%
+      </div>
+    </div>
+
+    <!-- Safety Status -->
+    <div class="monitor-card">
+      <div class="mc-header">
+        <div class="mc-title">Safety Status</div>
+      </div>
+      <div class="mc-value" id="safetyValue" style="font-size:1.2rem;color:var(--safe-green);margin-bottom:1rem">SAFE</div>
+      <div class="status-card">
+        <div class="status-indicator si-safe" id="aiStatus">
+          <div class="si-dot"></div>
+          <div class="si-text">AI Monitor Active</div>
+          <div class="si-time" id="statusTime">00:00</div>
+        </div>
+        <div class="status-indicator si-safe">
+          <div class="si-dot"></div>
+          <div class="si-text">GPS Tracking On</div>
+          <div class="si-time">Live</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HR History -->
+    <div class="monitor-card history-card">
+      <div class="mc-header">
+        <div class="mc-title">Heart Rate — Last 24 Hours</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(255,255,255,0.2)">Avg: <span id="avgHR">76</span> BPM</div>
+      </div>
+      <div class="history-bar-wrap" id="historyBars"></div>
+      <div class="history-labels"  id="historyLabels"></div>
+    </div>
+
+    <!-- Alert Log -->
+    <div class="monitor-card alert-log">
+      <div class="mc-header">
+        <div class="mc-title">Recent Activity Log</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(255,255,255,0.2)">Last 5 events</div>
+      </div>
+      <table class="alert-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Event</th>
+            <th>HR</th>
+            <th>SpO₂</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="alertLog">
+          <tr>
+            <td>09:42:11</td>
+            <td><span class="alert-dot" style="background:var(--safe-green)"></span>Normal Activity</td>
+            <td>76 bpm</td><td>98%</td>
+            <td style="color:var(--safe-green)">Safe</td>
+          </tr>
+          <tr>
+            <td>09:38:05</td>
+            <td><span class="alert-dot" style="background:var(--warn-amber)"></span>Elevated HR Detected</td>
+            <td>112 bpm</td><td>97%</td>
+            <td style="color:var(--warn-amber)">Monitoring</td>
+          </tr>
+          <tr>
+            <td>09:31:22</td>
+            <td><span class="alert-dot" style="background:var(--safe-green)"></span>Normal Activity</td>
+            <td>72 bpm</td><td>99%</td>
+            <td style="color:var(--safe-green)">Safe</td>
+          </tr>
+          <tr>
+            <td>09:15:44</td>
+            <td><span class="alert-dot" style="background:var(--safe-green)"></span>Normal Activity</td>
+            <td>68 bpm</td><td>98%</td>
+            <td style="color:var(--safe-green)">Safe</td>
+          </tr>
+          <tr>
+            <td>08:58:33</td>
+            <td><span class="alert-dot" style="background:var(--safe-green)"></span>Wake Detected</td>
+            <td>65 bpm</td><td>98%</td>
+            <td style="color:var(--safe-green)">Safe</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── AWARENESS ──────────────────────────────────── -->
+<section class="awareness" id="awareness">
+  <div class="awareness-grid">
+    <div class="awareness-text">
+      <div class="section-tag">Why It Matters</div>
+      <h2 class="section-title">The reality<br>women face <em>daily</em></h2>
+      <p>Every day, millions of women navigate the world with a constant undercurrent of fear. Public transport. Late shifts. Walking home. These are not paranoid thoughts — they are rational responses to documented danger.</p>
+      <p>SafeBand doesn't change the world overnight. But it gives every woman a silent guardian — a device that watches, listens, and acts in the moments when seconds count.</p>
+      <a href="#features" class="btn-primary" style="display:inline-block;margin-top:1rem">Learn About Features</a>
+    </div>
+
+    <div class="fact-cards">
+      <div class="fact-card">
+        <span class="fact-number">736M</span>
+        <p class="fact-text">Women have experienced physical or sexual violence at least once in their lifetime worldwide</p>
+      </div>
+      <div class="fact-card">
+        <span class="fact-number">38%</span>
+        <p class="fact-text">Of murders of women are committed by intimate partners — often without prior police reports</p>
+      </div>
+      <div class="fact-card">
+        <span class="fact-number">90s</span>
+        <p class="fact-text">Average time before a SafeBand alert reaches emergency contacts after a trigger event</p>
+      </div>
+      <div class="fact-card">
+        <span class="fact-number">60%</span>
+        <p class="fact-text">Of detected human trafficking victims worldwide are women and girls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ───────────────────────────────────── -->
+<section class="features" id="features">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Capabilities</div>
+      <h2 class="section-title">Everything she<br>needs to feel <em>safe</em></h2>
+    </div>
+    <p class="section-desc">Built on Raspberry Pi 4. Trained with real data. Designed for real life.</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-item">
+      <span class="feature-icon">🔊</span>
+      <h3 class="feature-title">Stress Detection</h3>
+      <p class="feature-desc">CNN model trained on real female scream recordings. Detects distress in under 60ms. Works in any acoustic environment.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🌍</span>
+      <h3 class="feature-title">Any Language Help Detection</h3>
+      <p class="feature-desc">Whisper encoder extracts language-agnostic features. Detects "bachao", "help", "au secours" — any cry for help in any language.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">❤️</span>
+      <h3 class="feature-title">Heart Rate Monitoring</h3>
+      <p class="feature-desc">Continuous optical heart rate sensing. Anomaly detection flags sudden spikes consistent with fight-or-flight response.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🫁</span>
+      <h3 class="feature-title">SpO₂ Tracking</h3>
+      <p class="feature-desc">Blood oxygen saturation monitored in real time. Alerts when levels drop below safe thresholds, indicating physical stress.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">📍</span>
+      <h3 class="feature-title">GPS Alert System</h3>
+      <p class="feature-desc">Instant SMS and app notification to designated contacts with precise GPS coordinates when danger is detected.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🔒</span>
+      <h3 class="feature-title">On-Device Processing</h3>
+      <p class="feature-desc">All AI runs locally on Raspberry Pi 4. No audio is ever transmitted. No cloud dependency. Works without internet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────── -->
+<section class="cta-section">
+  <h2 class="cta-title">No woman should<br>face danger <em>alone</em></h2>
+  <p class="cta-sub">SafeBand — Because safety should be a right, not a privilege.</p>
+  <div class="cta-buttons">
+    <button class="btn-white">Get SafeBand</button>
+    <button class="btn-outline-white">Learn More</button>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="footer-logo">Safe<span>Band</span></div>
+  <ul class="footer-links">
+    <li><a href="#how">Technology</a></li>
+    <li><a href="#monitor">Monitor</a></li>
+    <li><a href="#awareness">Awareness</a></li>
+    <li><a href="#features">Features</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 SafeBand · Protecting Every Woman</div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
